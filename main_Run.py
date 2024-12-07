@@ -63,7 +63,7 @@ def manually_fill():
         try:
             global cursor
             connection = pymysql.connect(
-                host='localhost', user='root', password='', db='manually_fill_attendance')
+                host='localhost', user='root', password='Seq@123$', db='attendance_db')
             cursor = connection.cursor()
         except Exception as e:
             print(e)
@@ -165,7 +165,7 @@ def manually_fill():
             def create_csv():
                 import csv
                 cursor.execute("select * from " + DB_table_name + ";")
-                csv_name = 'C:/Users/Pragya singh/PycharmProjects/Attendace_management_system/Attendance/Manually Attendance/'+DB_table_name+'.csv'
+                csv_name = 'E:/P2-Attendance-Management-System-using-Face-Recognition\Attendance/Manual Attendence/'+DB_table_name+'.csv'
                 with open(csv_name, "w") as csv_file:
                     csv_writer = csv.writer(csv_file)
                     csv_writer.writerow(
@@ -221,7 +221,7 @@ def manually_fill():
             def attf():
                 import subprocess
                 subprocess.Popen(
-                    r'explorer /select,"C:\Users\Pragya Singh\PycharD:\Company\Edunet Foundation - Pune\Project\OneDrive_2024-10-01\Attendance Management System using Face Recognition\AttendancemProjects\Attendace_management_system\Attendance\Manually Attendance\-------Check atttendance-------"')
+                    r'explorer /select,"E:\P2-Attendance-Management-System-using-Face-Recognition\Attendance\Manual Attendence\-------Check atttendance-------"')
 
             attf = tk.Button(MFW,  text="Check Sheets", command=attf, fg="white", bg="black",
                              width=12, height=1, activebackground="white", font=('times', 14, ' bold '))
@@ -302,7 +302,7 @@ def take_img():
         err_screen()
     else:
         try:
-            cam = cv2.VideoCapture(0)
+            cam = cv2.VideoCapture(0, cv2.CAP_DSHOW)
             detector = cv2.CascadeClassifier(
                 'haarcascade_frontalface_default.xml')
             Enrollment = txt.get()
@@ -485,7 +485,7 @@ def subjectchoose():
                 root = tkinter.Tk()
                 root.title("Attendance of " + Subject)
                 root.configure(background='grey80')
-                cs = 'C:/Users/Pragya Singh/PycharmProjects/Attendace_management_system/' + fileName
+                cs = 'E:/P2-Attendance-Management-System-using-Face-Recognition/' + fileName
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
@@ -514,7 +514,7 @@ def subjectchoose():
     def Attf():
         import subprocess
         subprocess.Popen(
-            r'explorer /select,"C:\Users\Pragya Singh\PycharmProjects\Attendace_management_system\Attendance\-------Check atttendance-------"')
+            r'explorer /select,"E:\P2-Attendance-Management-System-using-Face-Recognition\Attendance\-------Check atttendance-------"')
 
     attf = tk.Button(windo,  text="Check Sheets", command=Attf, fg="white", bg="black",
                      width=12, height=1, activebackground="white", font=('times', 14, ' bold '))
@@ -545,8 +545,8 @@ def admin_panel():
         username = un_entr.get()
         password = pw_entr.get()
 
-        if username == 'pragya':
-            if password == 'pragya123':
+        if username == 'ananya':
+            if password == '12345':
                 win.destroy()
                 import csv
                 import tkinter
@@ -554,7 +554,7 @@ def admin_panel():
                 root.title("Student Details")
                 root.configure(background='grey80')
 
-                cs = 'C:/Users/Pragya Singh/PycharmProjects/Attendace_management_system/StudentDetails/StudentDetails.csv'
+                cs = 'E:/P2-Attendance-Management-System-using-Face-Recognition/StudentDetails/StudentDetails.csv'
                 with open(cs, newline="") as file:
                     reader = csv.reader(file)
                     r = 0
